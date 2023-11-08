@@ -9,6 +9,45 @@ This server-side application provides the backend services for the Store Managem
 - **Authentication**: Manages user authentication and authorization for secure access to the management system.
 - **Data Processing**: Handles business logic for inventory restocking, order fulfillment, and customer service operations.
 
+## API Endpoints
+
+Below are the API endpoints provided by the server, grouped by controller functionality:
+
+### Authentication Endpoints (`authController.js`)
+- **POST `/auth/register`**: Register a new user account.
+- **POST `/auth/login`**: Login to an existing user account.
+
+### Category Endpoints (`categoryController.js`)
+- **POST `/categories/add`**: Add a new product category.
+- **PUT `/categories/update/:category_id`**: Update an existing product category.
+- **DELETE `/categories/delete/:category_id`**: Delete a product category.
+- **GET `/categories/:category_id`**: Get details of a single product category.
+- **GET `/categories/`**: Get a list of all product categories.
+
+### Customer Endpoints (`customerController.js`)
+- **POST `/customers/add`**: Add a new customer.
+- **PUT `/customers/update/:customer_id`**: Update an existing customer.
+- **DELETE `/customers/delete/:customer_id`**: Delete a customer.
+- **GET `/customers/:customer_id`**: Get details of a single customer.
+- **GET `/customers/`**: Get a list of all customers.
+
+### Inventory Endpoints (`inventoryController.js`)
+- **POST `/inventory/add`**: Add a new product to the inventory.
+- **PUT `/inventory/update/:product_id`**: Update an existing product in the inventory.
+- **DELETE `/inventory/delete/:product_id`**: Delete a product from the inventory.
+- **GET `/inventory/:product_id`**: Get details of a single product.
+- **GET `/inventory/`**: Get a list of all inventory items.
+
+### Orders Endpoints (`ordersController.js`)
+- **POST `/orders/add`**: Place a new order.
+- **PUT `/orders/update/:order_id`**: Update an existing order.
+- **DELETE `/orders/delete/:order_id`**: Cancel an order.
+- **GET `/orders/:order_id`**: Get details of a single order.
+- **GET `/orders/`**: Get a list of all orders.
+
+All endpoints are protected and require an `Authorization` header with a valid JWT token.
+
+
 ## Related Repositories
 
 - **Client Application**: For the frontend client application that interacts with this server, visit [Store Management Client](https://github.com/IamShaharFar/Store-Management-Client.git).
