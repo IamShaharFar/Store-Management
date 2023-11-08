@@ -50,7 +50,7 @@ All endpoints are protected and require an `Authorization` header with a valid J
 
 ## Related Repositories
 
-- **Client Application**: For the frontend client application that interacts with this server, visit [Store Management Client](https://github.com/IamShaharFar/Store-Management-Client.git).
+- **Client Application**: For the frontend client application that interacts with this server, visit [Store Management Client](https://github.com/IamShaharFar/Store-Managment-Client).
 
 ## Getting Started
 
