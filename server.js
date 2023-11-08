@@ -5,10 +5,12 @@ const inventoryController = require("./Controllers/inventoryController");
 const customerController = require("./Controllers/customerController")
 const orderController = require("./Controllers/ordersController");
 const categoryController = require("./Controllers/categoryController")
+const publicController = require("./Controllers/publicController");
 const mongoose = require('mongoose');
 
 const app = express();
 
+app.use(express.json());
 app.use(cors());
 
 // Middleware to parse JSON requests
@@ -29,6 +31,7 @@ app.use('/inventory', inventoryController);
 app.use('/customers', customerController)
 app.use('/orders', orderController);
 app.use('/categories', categoryController)
+app.use('/public', publicController)
 
 const PORT = 3000;
 app.listen(PORT, () => {

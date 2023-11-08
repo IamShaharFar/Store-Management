@@ -28,6 +28,7 @@ async function uploadImageToImgur(imageBuffer) {
 // Add Product endpoint
 router.post("/add", upload.single("image"), async (req, res) => {
   try {
+    console.log("ddd")
     const {
       product_name,
       product_description,
@@ -68,22 +69,23 @@ router.post("/add", upload.single("image"), async (req, res) => {
 router.post('/add-sample-products', async (req, res) => {
   // Sample products
   const sampleProducts = [
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 1", product_description: "This is the first sample product.", price: 10.99, stock_quantity: 100, barcode: "001001001001", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 2", product_description: "The second sample product in our list.", price: 15.49, stock_quantity: 75, barcode: "002002002002", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 3", product_description: "Another great sample product.", price: 20.00, stock_quantity: 50, barcode: "003003003003", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 4", product_description: "Yet another sample product.", price: 8.99, stock_quantity: 125, barcode: "004004004004", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 5", product_description: "Fifth product in our sample list.", price: 14.99, stock_quantity: 100, barcode: "005005005005", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 6", product_description: "Halfway through our list with this product.", price: 12.49, stock_quantity: 80, barcode: "006006006006", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 7", product_description: "Lucky number seven sample product.", price: 18.99, stock_quantity: 60, barcode: "007007007007", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 8", product_description: "The eighth wonder, our eighth sample product.", price: 22.00, stock_quantity: 40, barcode: "008008008008", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 9", product_description: "Nearing the end with our ninth product.", price: 10.49, stock_quantity: 90, barcode: "009009009009", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 10", product_description: "A perfect ten, our tenth sample product.", price: 11.99, stock_quantity: 95, barcode: "010010010010", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 11", product_description: "Eleventh heaven with this product.", price: 13.49, stock_quantity: 85, barcode: "011011011011", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 12", product_description: "Twelfth product in our delightful dozen.", price: 15.00, stock_quantity: 70, barcode: "012012012012", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 13", product_description: "Unlucky for some, but not for us! Thirteenth product.", price: 17.49, stock_quantity: 65, barcode: "013013013013", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 14", product_description: "Almost at the end with our fourteenth product.", price: 19.99, stock_quantity: 55, barcode: "014014014014", image_url: "https://i.imgur.com/HZHpc0y.png" },
-    { user_id: "6534129b99745f0add6f96cf", product_name: "Sample Product 15", product_description: "Last but not least, our fifteenth sample product.", price: 21.49, stock_quantity: 45, barcode: "015015015015", image_url: "https://i.imgur.com/HZHpc0y.png" }
+    { user_id: "6534129b99745f0add6f96cf", product_name: "BluTech Earbuds", product_description: "Wireless Bluetooth earbuds with high-fidelity sound and noise cancellation.", price: 59.99, stock_quantity: 100, barcode: "001001001001", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "EcoFibre Tee", product_description: "Sustainable cotton t-shirt available in various colors.", price: 29.49, stock_quantity: 75, barcode: "002002002002", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "NatureGlow Serum", product_description: "Organic face serum enriched with Vitamin C.", price: 45.00, stock_quantity: 50, barcode: "003003003003", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "TimeCraft Clock", product_description: "Handcrafted wooden clock with a minimalist design.", price: 38.99, stock_quantity: 125, barcode: "004004004004", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "Digital Marketing Guide", product_description: "300+ page handbook written by industry experts.", price: 24.99, stock_quantity: 100, barcode: "005005005005", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "AR Puzzle Galaxy", product_description: "Augmented reality-powered puzzle set with 500 pieces.", price: 32.49, stock_quantity: 80, barcode: "006006006006", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "Cafe Aroma Beans", product_description: "Gourmet coffee beans, single-origin, roasted to perfection.", price: 18.99, stock_quantity: 60, barcode: "007007007007", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "Luna Silver Necklace", product_description: "Sterling silver pendant necklace with ethically sourced materials.", price: 62.00, stock_quantity: 40, barcode: "008008008008", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "Yoga Balance Mat", product_description: "Non-slip yoga mat designed for optimal grip and comfort.", price: 27.49, stock_quantity: 90, barcode: "009009009009", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "KitchenCraft Blender", product_description: "High-speed blender perfect for smoothies and more.", price: 89.99, stock_quantity: 95, barcode: "010010010010", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "Breezy Summer Hat", product_description: "Stylish and protective sun hat for the summer season.", price: 15.49, stock_quantity: 85, barcode: "011011011011", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "EcoSip Reusable Bottle", product_description: "Sustainable water bottle with temperature retention.", price: 25.00, stock_quantity: 70, barcode: "012012012012", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "TravelPack Backpack", product_description: "Durable and spacious backpack ideal for travelers.", price: 47.49, stock_quantity: 65, barcode: "013013013013", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "NightGlow Lamp", product_description: "Ambient bedside lamp with customizable light settings.", price: 34.99, stock_quantity: 55, barcode: "014014014014", image_url: "https://i.imgur.com/HZHpc0y.png" },
+    { user_id: "6534129b99745f0add6f96cf", product_name: "SketchMaster Art Set", product_description: "Premium art set with colored pencils, pastels, and more.", price: 29.49, stock_quantity: 45, barcode: "015015015015", image_url: "https://i.imgur.com/HZHpc0y.png" }
 ];
+
 
 
   try {

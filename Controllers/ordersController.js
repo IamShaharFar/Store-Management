@@ -62,6 +62,7 @@ router.post("/generateRandomOrders", async (req, res) => {
 
         const newOrder = new Order({
           user_id: "6534129b99745f0add6f96cf",
+          customer_id: "653524054b45cfe4a70a61e6",
           products: [
             {
               product_id: randomProduct._id,
@@ -92,9 +93,11 @@ router.put("/update/:order_id", async (req, res) => {
     }
     order.products = req.body.products || order.products;
     order.total_price = req.body.total_price || order.total_price;
+    order.isPaid = req.body.isPaid || order.isPaid;
     await order.save();
     res.status(200).send("Order updated successfully");
   } catch (error) {
+    console.log(error);
     res.status(500).send("Server error");
   }
 });

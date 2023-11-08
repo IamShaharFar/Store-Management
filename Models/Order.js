@@ -33,6 +33,10 @@ const orderSchema = new mongoose.Schema({
     total_price: {
         type: Number,
         required: true
+    },
+    isPaid: { 
+        type: Boolean,
+        default: false
     }
 });
 

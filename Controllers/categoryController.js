@@ -1,5 +1,5 @@
 const express = require("express");
-const Category = require("../models/Category");
+const Category = require("../Models/Category");
 const Product = require("../Models/Product");
 const verifyToken = require("../Middlewares/authMiddleware");
 
@@ -13,6 +13,7 @@ router.post("/add-category", async (req, res) => {
     const { name, description } = req.body;
 
     const newCategory = new Category({
+      user_id: req.user.id,
       name,
       description,
     });
@@ -22,6 +23,32 @@ router.post("/add-category", async (req, res) => {
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Server error");
+  }
+});
+
+router.post("/add-sample-categories", async (req, res) => {
+  try {
+    const sampleCategories = [
+      { name: "Electronics", description: "Gadgets and tech gear" },
+      { name: "Clothing", description: "Apparels for all genders and ages" },
+      { name: "Beauty", description: "Beauty products and cosmetics" },
+      { name: "Home Decor", description: "Decorative items for home" },
+      { name: "Books", description: "Printed books and e-books" },
+      { name: "Outdoor", description: "Products for outdoor activities" },
+      {
+        name: "Health & Fitness",
+        description: "Products for a healthy lifestyle",
+      },
+      { name: "Toys", description: "Toys and games for kids" },
+      { name: "Grocery", description: "Daily grocery items" },
+      { name: "Footwear", description: "Shoes, sandals, and other footwears" },
+    ];
+
+    await Category.insertMany(sampleCategories);
+    res.status(200).send({ message: "Sample categories added successfully!" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ error: "Failed to add sample categories" });
   }
 });
 
